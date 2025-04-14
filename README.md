@@ -9,7 +9,7 @@ Welcome to Safer! Your ultimate travel accommodation booking platform. Seamlessl
 
 ## 🚀 Technologies
 
-In this project, I've used the following libraries:
+In This Project, I've used the following libraries:
 
 - **[react](https://reactjs.org/)**: A JavaScript library for building user interfaces.
 - **[react-dom](https://reactjs.org/docs/react-dom.html)**: Entry point of the DOM-related rendering paths.
