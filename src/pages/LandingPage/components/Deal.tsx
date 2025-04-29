@@ -75,11 +75,9 @@ const Deal: FC<DealProps> = ({ deal }) => {
               color="text.secondary"
               fontSize={14}
               mr={1}
-              sx={{ textDecoration: "line-through" }}
             >
-              {originalRoomPrice}$
+              {originalRoomPrice}
             </Typography>
-            {finalPrice}$
           </Typography>
         </Stack>
       </CardContent>
@@ -92,7 +90,7 @@ const Deal: FC<DealProps> = ({ deal }) => {
           to={`hotel/${hotelId}`}
           sx={{ m: "auto" }}
         >
-          Show more details
+          Дэлгэрэнгүй үзэх
         </Button>
       </CardActions>
     </Card>

@@ -28,7 +28,7 @@ const AddRoomToCartDialog: FC<AddRoomToCartDialogProps> = ({
   const handleAddToCart = () => {
     dispatch(addToCart({ ...roomToAddToCart, checkInDate, checkOutDate }));
     showSuccessSnackbar({
-      message: "Your Booking has been added to your Cart!",
+      message: "Аялал сагсанд амжилттай нэмэгдлээ",
     });
     handleCloseAddRoomToCartDialog();
   };
@@ -41,7 +41,7 @@ const AddRoomToCartDialog: FC<AddRoomToCartDialogProps> = ({
       aria-describedby="alert-dialog-description"
       sx={{ overflow: "visible" }}
     >
-      <DialogTitle>Choose your Booking date</DialogTitle>
+      <DialogTitle>Аялалын өдөр сонгох</DialogTitle>
       <DialogContent dividers sx={{ minWidth: "400px", height: "500px" }}>
         <Stack justifyContent="space-between" height="100%">
           <DateRangeField
@@ -59,14 +59,14 @@ const AddRoomToCartDialog: FC<AddRoomToCartDialogProps> = ({
               endIcon={<Plus />}
               disabled={!checkInDate || !checkOutDate}
             >
-              Add
+              Нэмэх
             </Button>
             <Button
               variant="contained"
               color="warning"
               onClick={handleCloseAddRoomToCartDialog}
             >
-              Cancel
+              Болих
             </Button>
           </Stack>
         </Stack>

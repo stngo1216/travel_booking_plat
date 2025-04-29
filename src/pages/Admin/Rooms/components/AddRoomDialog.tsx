@@ -8,6 +8,7 @@ const AddRoomDialog: FC<AddRoomDialogProps> = ({
   hotels,
   refetchRooms,
   handleCloseAddRoomDialog,
+  addRoom,
 }) => {
   return (
     <Dialog
@@ -16,9 +17,10 @@ const AddRoomDialog: FC<AddRoomDialogProps> = ({
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
-      <DialogTitle>Add New Hotel</DialogTitle>
+      <DialogTitle>Шинэ аялал нэмэх</DialogTitle>
       <DialogContent dividers>
         <AddRoomForm
+          addRoom={addRoom}
           hotels={hotels}
           refetchRooms={refetchRooms}
           handleCloseAddRoomDialog={handleCloseAddRoomDialog}

@@ -1,7 +1,14 @@
-import logo from "@/assets/images/full-logo.png";
+import logo from "@/assets/images/logo.png";
 import StyledContainer from "@/containers/StyledContainer";
 import { Facebook, GitHub, LinkedIn } from "@mui/icons-material";
-import { Container, Grid, IconButton, Link, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid,
+  IconButton,
+  Link,
+  Typography,
+} from "@mui/material";
 import { FC } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import styles from "./styles.module.css";
@@ -22,13 +29,18 @@ const Footer: FC = () => {
           justifyContent="space-between"
         >
           <Grid item container xs={12} sm={5.5} direction="column" gap={2}>
-            <img
-              src={logo}
-              className={styles.logo}
-              alt="Safer logo"
-              style={{ margin: isMobile ? "auto" : "0" }}
-            />
-            <Typography
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+              <img src={logo} width="30px" height="30px" alt="logo of safer" />
+
+              <Typography
+                variant="body1"
+                sx={{ textDecoration: "none" }}
+                color="text.primary"
+              >
+                MGL Travel
+              </Typography>
+            </Box>
+            {/* <Typography
               variant="body2"
               color="text.secondary"
               textAlign={isMobile ? "center" : "start"}
@@ -42,7 +54,7 @@ const Footer: FC = () => {
                 Salah AlDin Qerem&nbsp;
               </Link>
               {new Date().getFullYear()}
-            </Typography>
+            </Typography> */}
           </Grid>
           <Grid
             item
@@ -55,30 +67,12 @@ const Footer: FC = () => {
           >
             <IconButton
               color="inherit"
-              href="https://www.facebook.com/salah.qerem/"
+              href="https://www.facebook.com/munkhuu2324/"
               target="_blank"
               aria-label="Facebook"
               sx={{ alignSelf: "center" }}
             >
               <Facebook />
-            </IconButton>
-            <IconButton
-              color="inherit"
-              href="https://github.com/SalahQerem"
-              target="_blank"
-              aria-label="X"
-              sx={{ alignSelf: "center" }}
-            >
-              <GitHub />
-            </IconButton>
-            <IconButton
-              color="inherit"
-              href="https://www.linkedin.com/in/salah-al-din-qerem-83833423a/"
-              target="_blank"
-              aria-label="LinkedIn"
-              sx={{ alignSelf: "center" }}
-            >
-              <LinkedIn />
             </IconButton>
           </Grid>
         </Grid>

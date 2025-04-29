@@ -9,35 +9,31 @@ const useNavbarNavigationItems = () => {
   const navigationItems: Array<NavigationItem> = [
     {
       id: "features deals",
-      label: "Featured Deals",
+      label: "Манай аялал",
       isVisible: isUser,
     },
     {
       id: "trending destinations",
-      label: "Trending Destinations",
+      label: "Оцлох аялал",
       isVisible: isUser,
     },
-    {
-      id: "recently visited hotels",
-      label: "Recently visited Hotels",
-      isVisible: isUser,
-    },
-    {
-      id: "cities",
-      label: "Manage Cities",
-      to: "/me/cities",
-      isVisible: isAdmin,
-    },
-    {
-      id: "hotels",
-      label: "Manage Hotels",
-      to: "/me/hotels",
-      isVisible: isAdmin,
-    },
+
+    // {
+    //   id: "cities",
+    //   label: "Manage Cities",
+    //   to: "/cities",
+    //   isVisible: isAdmin,
+    // },
+    // {
+    //   id: "hotels",
+    //   label: "Manage Hotels",
+    //   to: "/hotels",
+    //   isVisible: isAdmin,
+    // },
     {
       id: "rooms",
-      label: "Manage Rooms",
-      to: "/me/rooms",
+      label: "Аялалын багцууд",
+      to: "/rooms",
       isVisible: isAdmin,
     },
   ];

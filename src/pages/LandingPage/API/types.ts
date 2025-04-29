@@ -1,8 +1,8 @@
 export interface FeaturedDeal {
   hotelId: number;
-  originalRoomPrice: number;
-  discount: number;
-  finalPrice: number;
+  originalRoomPrice?: string;
+  discount?: number;
+  finalPrice: string;
   cityName: string;
   hotelName: string;
   hotelStarRating: number;

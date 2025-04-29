@@ -1,4 +1,4 @@
-import fullLogo from "@/assets/images/full-logo.png";
+import fullLogo from "@/assets/images/logo.png";
 import { toggleThemeMode } from "@/features/AppSettings";
 import { selectThemeMode } from "@/features/AppSettings/selectors";
 import { selectCartItemsCount } from "@/features/Cart";
@@ -24,12 +24,14 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { StyledMenuItem, StyledToolbar } from "./StyledElements";
 import ToggleColorMode from "./ToggleColorMode";
 import styles from "./styles.module.css";
+import useSession from "@/hooks/useSession";
 
 const Navbar: FC = () => {
   const themeMode = useSelector(selectThemeMode);
   const cartItemsCount = useAppSelector(selectCartItemsCount);
   const isUser = useAppSelector(selectIsUser);
-
+  const { isLoggedIn } = useSession();
+  console.log(isLoggedIn);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const navigate = useNavigate();
@@ -42,7 +44,12 @@ const Navbar: FC = () => {
 
   const Logout = () => {
     dispatch(logout());
-    navigate("/");
+    navigate("/", { replace: true });
+    window.location.reload();
+  };
+
+  const Login = () => {
+    navigate("/login");
   };
 
   const scrollToSection = (sectionId: string, hasTo: boolean) => {
@@ -57,7 +64,7 @@ const Navbar: FC = () => {
         behavior: "smooth",
       });
     } else {
-      navigate("/me");
+      navigate("");
     }
   };
 
@@ -92,8 +99,23 @@ const Navbar: FC = () => {
       <Container>
         <StyledToolbar variant="regular">
           <Stack direction="row" flexGrow={1} ml={-1}>
-            <Link to={isUser ? "/me" : "/me/hotels"}>
-              <img src={fullLogo} width="100px" alt="logo of safer" />
+            <Link to={isUser ? "/" : "/hotels"}>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                <img
+                  src={fullLogo}
+                  width="30px"
+                  height="30px"
+                  alt="logo of safer"
+                />
+
+                <Typography
+                  variant="body1"
+                  sx={{ textDecoration: "none" }}
+                  color="text.primary"
+                >
+                  MGL Travel
+                </Typography>
+              </Box>
             </Link>
             <Box sx={{ display: { xs: "none", md: "flex" }, gap: 1, px: 3 }}>
               {renderNavigationsItems}
@@ -114,7 +136,7 @@ const Navbar: FC = () => {
               <Button
                 size="small"
                 component={Link}
-                to={"/me/checkout"}
+                to={"/checkout"}
                 className={styles.cartBtn}
               >
                 <Badge badgeContent={cartItemsCount} color="primary">
@@ -122,15 +144,27 @@ const Navbar: FC = () => {
                 </Badge>
               </Button>
             )}
-            <Button
-              color="primary"
-              variant="contained"
-              size="small"
-              onClick={Logout}
-              endIcon={<LogOut size={20} />}
-            >
-              Logout
-            </Button>
+            {isLoggedIn ? (
+              <Button
+                color="primary"
+                variant="contained"
+                size="small"
+                onClick={Logout}
+                endIcon={<LogOut size={20} />}
+              >
+                Гарах
+              </Button>
+            ) : (
+              <Button
+                color="primary"
+                variant="contained"
+                size="small"
+                onClick={Login}
+                endIcon={<LogOut size={20} />}
+              >
+                Нэвтрэх
+              </Button>
+            )}
           </Box>
           <Box sx={{ display: { sm: "", md: "none" } }}>
             <Button
@@ -170,7 +204,7 @@ const Navbar: FC = () => {
                     <Button
                       size="small"
                       component={Link}
-                      to={"/me/checkout"}
+                      to={"/checkout"}
                       className={styles.cartBtn}
                     >
                       <Badge badgeContent={cartItemsCount} color="primary">
@@ -178,15 +212,27 @@ const Navbar: FC = () => {
                       </Badge>
                     </Button>
                   )}
-                  <Button
-                    color="primary"
-                    variant="contained"
-                    size="small"
-                    onClick={Logout}
-                    endIcon={<LogOut size={20} />}
-                  >
-                    Logout
-                  </Button>
+                  {isLoggedIn ? (
+                    <Button
+                      color="primary"
+                      variant="contained"
+                      size="small"
+                      onClick={Logout}
+                      endIcon={<LogOut size={20} />}
+                    >
+                      Гарах
+                    </Button>
+                  ) : (
+                    <Button
+                      color="primary"
+                      variant="contained"
+                      size="small"
+                      onClick={Login}
+                      endIcon={<LogOut size={20} />}
+                    >
+                      Нэвтрэх
+                    </Button>
+                  )}
                 </Stack>
                 <Divider />
                 {renderNavigationsItems}

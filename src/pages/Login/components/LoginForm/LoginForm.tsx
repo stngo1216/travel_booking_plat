@@ -29,12 +29,12 @@ const LoginForm = () => {
           <TextField
             name="userName"
             aria-label="Enter your username "
-            placeholder="Your username"
+            placeholder="Нэр"
           />
           <PasswordField
             name="password"
             aria-label="Enter your password "
-            placeholder="Your password"
+            placeholder="Нууц үг"
           />
           <LoadingButton
             type="submit"
@@ -44,7 +44,7 @@ const LoginForm = () => {
             endIcon={<LogIn size={20} />}
             loading={isPending}
           >
-            Login
+            Нэвтрэх
           </LoadingButton>
         </Stack>
       </Form>

@@ -15,7 +15,7 @@ const useAddBookingAPI = () => {
   const { mutate: addBooking, isPending } = useMutation({
     mutationFn: addBookingAPI,
     onSuccess: (response: AddBookingAPIResponse) => {
-      showSuccessSnackbar({ message: "Your booking has been confirmed" });
+      showSuccessSnackbar({ message: "Аялал сагсанд амжилттай нэмэгдлээ" });
       dispatch(clearCart());
 
       const urlWithQuery = getUrlQueryString(
@@ -25,7 +25,7 @@ const useAddBookingAPI = () => {
       navigate(urlWithQuery);
     },
     onError: () => {
-      showErrorSnackbar({ message: "Sorry, your booking is failed" });
+      showErrorSnackbar({ message: "Уучлаарай алдаа гарлаа" });
     },
   });
 

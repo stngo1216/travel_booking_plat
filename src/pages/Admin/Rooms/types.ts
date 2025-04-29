@@ -2,6 +2,7 @@ import { Hotel, Room } from "@/types";
 import { QueryObserverResult, RefetchOptions } from "@tanstack/react-query";
 import { Dispatch, SetStateAction } from "react";
 import { GetHotelRoomsResponse } from "./API/types";
+import { FormValuesTypes } from "./components/AddRoomForm";
 
 export interface RoomProps {
   room: Room;
@@ -16,6 +17,7 @@ export interface AddRoomDialogProps {
   refetchRooms: (
     options?: RefetchOptions
   ) => Promise<QueryObserverResult<GetHotelRoomsResponse, Error>>;
+  addRoom: (values: FormValuesTypes) => void;
 }
 
 export interface AddRoomFormProps {
@@ -24,4 +26,5 @@ export interface AddRoomFormProps {
   refetchRooms: (
     options?: RefetchOptions
   ) => Promise<QueryObserverResult<GetHotelRoomsResponse, Error>>;
+  addRoom: (values: FormValuesTypes) => void;
 }

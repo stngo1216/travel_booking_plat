@@ -12,20 +12,22 @@ import { validationSchema } from "../formSchema";
 import useAddRoomAPI from "../hooks/useAddRoomAPI";
 import { AddRoomFormProps } from "../types";
 
-type FormValuesTypes = InferType<typeof validationSchema>;
+export type FormValuesTypes = InferType<typeof validationSchema>;
 
 const AddRoomForm: FC<AddRoomFormProps> = ({
   hotels,
   refetchRooms,
   handleCloseAddRoomDialog,
+  addRoom,
 }) => {
-  const { addRoom, isPending } = useAddRoomAPI(
-    refetchRooms,
-    handleCloseAddRoomDialog
-  );
+  // const { addRoom, isPending } = useAddRoomAPI(
+  //   refetchRooms,
+  //   handleCloseAddRoomDialog
+  // );
 
   const onSubmit = (values: FormValuesTypes) => {
-    addRoom({ ...values });
+    addRoom(values);
+    // addRoom({ ...values });
   };
 
   const formikProps = useFormik({
@@ -42,23 +44,27 @@ const AddRoomForm: FC<AddRoomFormProps> = ({
         <Form>
           <Paper variant="outlined" component="fieldset" sx={{ padding: 2 }}>
             <Typography variant="caption" component="legend" sx={{ m: 0 }}>
-              Room Details
+              Аялалын мэдээлэл оруулах
             </Typography>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={4}>
-                <TextField name="roomNumber" placeholder="Room Number" />
+                <TextField name="roomNumber" placeholder="Аялалын нэр" />
               </Grid>
               <Grid item xs={12} sm={4}>
                 <AutoCompleteField
                   name="hotelId"
-                  placeholder="Hotel"
+                  placeholder="Аялын багц"
                   size="small"
                   options={hotels}
-                  getOptionLabel={(option) => (option as Hotel).name || ""}
+                  getOptionLabel={(option) => (option as Hotel).title || ""}
                   value={values.hotel}
                   onChange={(_, newValue) => {
+                    console.log(newValue);
                     setFieldValue("hotel", newValue);
-                    setFieldValue("hotelId", (newValue as Hotel)?.id ?? "");
+                    setFieldValue(
+                      "hotelId",
+                      (newValue as Hotel)?.hotelId ?? ""
+                    );
                   }}
                   sx={{ minWidth: "100%" }}
                 />
@@ -67,7 +73,7 @@ const AddRoomForm: FC<AddRoomFormProps> = ({
                 <TextField
                   name="cost"
                   type="number"
-                  placeholder="Cost"
+                  placeholder="Үнэ"
                   value={values.cost === 0 ? "" : values.cost}
                 />
               </Grid>
@@ -79,16 +85,16 @@ const AddRoomForm: FC<AddRoomFormProps> = ({
               color="primary"
               type="submit"
               endIcon={<Plus />}
-              loading={isPending}
+              // loading={isPending}
             >
-              Add
+              Нэмэх
             </LoadingButton>
             <Button
               variant="contained"
               color="warning"
               onClick={handleCloseAddRoomDialog}
             >
-              Cancel
+              Хаах
             </Button>
           </Stack>
         </Form>

@@ -1,12 +1,12 @@
 import * as yup from "yup";
 
 export const validationSchema = yup.object().shape({
-  roomNumber: yup.string().required("Please specify the room number"),
-  hotelId: yup.string().required("Please select the hotel"),
+  roomNumber: yup.string().required("Аялын нэр оруулна уу"),
+  hotelId: yup.string().required("Аялалын багц сонгоно уу"),
   cost: yup
     .number()
-    .min(1, "Cost must be greater than 0")
-    .required("Please specify the room cost"),
+    .min(1, "Үнэ 0-ээс их байх ёстой")
+    .required("Аялалын үнэ оруулна уу"),
   hotel: yup
     .object()
     .shape({
@@ -17,5 +17,5 @@ export const validationSchema = yup.object().shape({
       latitude: yup.number(),
       longitude: yup.number(),
     })
-    .required("Please select the hotel"),
+    .required("Аялалын багц сонгоно уу"),
 });

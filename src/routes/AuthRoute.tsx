@@ -10,15 +10,6 @@ const AuthRoute: FC = () => {
 
   if (isUpdatingSession) return <BlockUI />;
 
-  if (!isLoggedIn)
-    return (
-      <Navigate
-        to="/unauthenticated"
-        replace
-        state={{ from: location.pathname }}
-      />
-    );
-
   return <Outlet />;
 };
 

@@ -24,12 +24,12 @@ const Checkout = () => {
               renderCart
             ) : (
               <Typography variant="h5" textAlign="center" width="100%" mt={3}>
-                Yout Cart is empty ☹️
+                Сагс хоосон байна
               </Typography>
             )}
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <CheckoutForm />
+            {/* <CheckoutForm /> */}
           </Grid>
         </Grid>
       </Container>

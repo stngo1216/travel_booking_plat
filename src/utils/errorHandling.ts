@@ -15,7 +15,7 @@ const extractErrorMessages = (error: AxiosBaseError) => {
   if (title) return [title];
 
   // If the response does not have `title` key, return a generic error message
-  return ["Something went wrong!"];
+  return ["Ачаалалтай байна"];
 };
 
 /**

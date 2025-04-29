@@ -25,22 +25,23 @@ import useGetHotelGalaryAPI from "./hooks/useGetHotelGalaryAPI";
 import useGetHotelReviewsAPI from "./hooks/useGetHotelReviewsAPI";
 import useGetHotelRoomsAPI from "./hooks/useGetHotelRoomsAPI";
 import styles from "./styles.module.css";
+import { featuredDeals } from "../LandingPage/components/FeaturedDeals";
 
 const HotelDetails = () => {
-  const { hotelId = "" } = useParams();
+  const { hotelId = 1 } = useParams();
 
   const [reviewsCountToDisplay, setReviewsCountToDisplay] = useState(3);
   const [imageToDisplay, setImageToDisplay] = useState<string>("");
   const [roomToAddToCart, setRoomToAddToCart] = useState<Room>(defaultRoom);
   const [isAddRoomToCartDialogOpen, setIsAddRoomToCartDialogOpen] =
     useState<boolean>(false);
-
-  const { hotel, isFetchingHotel } = useGetHotelDetailsAPI(hotelId);
-  const { outdoorImage, squareImages, wideImages, isFetchingGalary } =
-    useGetHotelGalaryAPI(hotelId);
-  const { reviews, isFetchingReviews } = useGetHotelReviewsAPI(hotelId);
-  const { rooms, isFetchingRooms } = useGetHotelRoomsAPI(hotelId);
-
+  const hotel = featuredDeals.find((h) => h.hotelId === Number(hotelId));
+  // const { hotel, isFetchingHotel } = useGetHotelDetailsAPI(hotelId);
+  // const { outdoorImage, squareImages, wideImages, isFetchingGalary } =
+  //   useGetHotelGalaryAPI(hotelId);
+  // const { reviews, isFetchingReviews } = useGetHotelReviewsAPI(hotelId);
+  // const { rooms, isFetchingRooms } = useGetHotelRoomsAPI(hotelId);
+  // console.log(rooms);
   const handleIncreaseReviewsCount = () => {
     setReviewsCountToDisplay((prev) => prev + 3);
   };
@@ -56,37 +57,37 @@ const HotelDetails = () => {
     setImageToDisplay(galaryItemUrl);
   };
 
-  const renderAmenities = hotel?.amenities.map((amenity) => (
-    <Amenity key={hotel.hotelName + amenity.name} name={amenity.name} />
-  ));
+  // const renderAmenities = hotel?.amenities.map((amenity) => (
+  //   <Amenity key={hotel.hotelName + amenity.name} name={amenity.name} />
+  // ));
 
-  const renderReviews = reviews
-    .slice(0, reviewsCountToDisplay)
-    .map((review) => <Review key={review.reviewId} review={review} />);
+  // const renderReviews = reviews
+  //   .slice(0, reviewsCountToDisplay)
+  //   .map((review) => <Review key={review.reviewId} review={review} />);
 
-  const renderWideImages = wideImages.map((galaryItem) => (
-    <Grid item key={galaryItem.id} xs={12}>
-      <img
-        src={galaryItem.url}
-        alt={hotel?.hotelName}
-        className={styles.hotelImg}
-        onClick={() => handleSelectGalaryItem(galaryItem.url)}
-      />
-    </Grid>
-  ));
+  // const renderWideImages = wideImages.map((galaryItem) => (
+  //   <Grid item key={galaryItem.id} xs={12}>
+  //     <img
+  //       src={galaryItem.url}
+  //       alt={hotel?.hotelName}
+  //       className={styles.hotelImg}
+  //       onClick={() => handleSelectGalaryItem(galaryItem.url)}
+  //     />
+  //   </Grid>
+  // ));
 
-  const renderSquareImages = squareImages.map((galaryItem) => (
-    <Grid item key={galaryItem.id} xs={12} sm={4}>
-      <img
-        src={galaryItem.url}
-        alt={hotel?.hotelName}
-        className={styles.hotelImg}
-        onClick={() => handleSelectGalaryItem(galaryItem.url)}
-      />
-    </Grid>
-  ));
-
-  const renderAvailableRooms = rooms.map((room) => (
+  // const renderSquareImages = squareImages.map((galaryItem) => (
+  //   <Grid item key={galaryItem.id} xs={12} sm={4}>
+  //     <img
+  //       src={galaryItem.url}
+  //       alt={hotel?.hotelName}
+  //       className={styles.hotelImg}
+  //       onClick={() => handleSelectGalaryItem(galaryItem.url)}
+  //     />
+  //   </Grid>
+  // ));
+  console.log(hotel);
+  const renderAvailableRooms = hotel?.children?.map((room) => (
     <Grid item key={room.roomId} xs={12} sm={6}>
       <AvailableRoom
         room={room}
@@ -100,7 +101,7 @@ const HotelDetails = () => {
     <StyledContainer>
       <Container sx={{ py: 14 }}>
         <Grid container spacing={2} alignItems="flex-start">
-          {isFetchingHotel ? (
+          {false ? (
             <Loader />
           ) : (
             <Grid item xs={12} md={4}>
@@ -112,28 +113,28 @@ const HotelDetails = () => {
                     alignItems="center"
                   >
                     <Typography component="h1" variant="h5">
-                      {hotel?.hotelName}
+                      {hotel?.title}
                     </Typography>
-                    <Rating value={hotel?.starRating} readOnly />
+                    <Rating value={hotel?.hotelStarRating} readOnly />
                   </Stack>
                   <Typography variant="body1">{hotel?.description}</Typography>
-                  <Stack gap={1}>
+                  {/* <Stack gap={1}>
                     <Typography component="h2" variant="h6">
                       Amenities
                     </Typography>
                     {renderAmenities}
-                  </Stack>
-                  <InteractiveMap
+                  </Stack> */}
+                  {/* <InteractiveMap
                     popupLabel={hotel?.hotelName!}
                     longitude={hotel?.longitude!}
                     latitude={hotel?.latitude!}
                     className={styles.locationContainer}
-                  />
-                  <Stack gap={1}>
+                  /> */}
+                  {/* <Stack gap={1}>
                     <Typography component="h2" variant="h6">
                       Reviews
                     </Typography>
-                    {isFetchingReviews ? <Loader /> : renderReviews}
+                    { ? <Loader /> : renderReviews}
                     <Button
                       variant="contained"
                       onClick={handleIncreaseReviewsCount}
@@ -141,14 +142,14 @@ const HotelDetails = () => {
                     >
                       Load more
                     </Button>
-                  </Stack>
+                  </Stack> */}
                 </Stack>
               </Card>
             </Grid>
           )}
 
           <Grid item container spacing={3} xs={12} md={8}>
-            {isFetchingGalary ? (
+            {/* {isFetchingGalary ? (
               <Loader />
             ) : (
               <Grid container item spacing={1}>
@@ -175,20 +176,20 @@ const HotelDetails = () => {
                   {renderSquareImages}
                 </Grid>
               </Grid>
-            )}
+            )} */}
 
             <Grid container item xs={12} spacing={1} justifyContent="center">
               <Grid item xs={12}>
                 <Typography variant="h4" component="h2" textAlign="center">
-                  Available Rooms
+                  Аялалын хөтөлбөрүүд
                 </Typography>
               </Grid>
-              {isFetchingRooms ? <Loader /> : renderAvailableRooms}
+              {false ? <Loader /> : renderAvailableRooms}
             </Grid>
           </Grid>
         </Grid>
       </Container>
-      {imageToDisplay && (
+      {/* {imageToDisplay && (
         <Modal
           open={!!imageToDisplay}
           onClose={() => setImageToDisplay("")}
@@ -202,7 +203,7 @@ const HotelDetails = () => {
             />
           </Stack>
         </Modal>
-      )}
+      )} */}
       <AddRoomToCartDialog
         isOpen={isAddRoomToCartDialogOpen}
         roomToAddToCart={roomToAddToCart}

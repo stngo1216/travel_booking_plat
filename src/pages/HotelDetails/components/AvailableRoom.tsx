@@ -60,10 +60,10 @@ const AvailableRoom: FC<AvailableRoomProps> = ({
           mb={2}
         >
           <Typography gutterBottom variant="h5" component="h3" m={0}>
-            {roomType} Room
+            {roomType}
           </Typography>
           <Typography variant="body1" component="span" color="red">
-            {price}$/night
+            {price}
           </Typography>
         </Stack>
         <Stack direction="row" gap={1} mb={2}>
@@ -77,7 +77,7 @@ const AvailableRoom: FC<AvailableRoomProps> = ({
               {capacityOfAdults}
             </Typography>
           </Stack>
-          <Stack direction="row" gap={1}>
+          {/* <Stack direction="row" gap={1}>
             <Baby />
             <Typography
               variant="subtitle2"
@@ -86,7 +86,7 @@ const AvailableRoom: FC<AvailableRoomProps> = ({
             >
               {capacityOfChildren}
             </Typography>
-          </Stack>
+          </Stack> */}
         </Stack>
         <Stack direction="row" flexWrap="wrap" gap={2}>
           {renderAmenities}
@@ -102,7 +102,7 @@ const AvailableRoom: FC<AvailableRoomProps> = ({
           onClick={handleAddToCart}
           disabled={isItemInCart}
         >
-          {isItemInCart ? "Already Added" : "Add to Cart"}
+          {isItemInCart ? "Сагсанд хийсэн" : "Сагсанд нэмэх"}
         </Button>
       </CardActions>
     </Card>

@@ -1,7 +1,7 @@
-import saferLogo from "@/assets/images/full-logo.png";
+import saferLogo from "@/assets/images/logo.png";
 import loginImg from "@/assets/images/login.png";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import { Card, Container, Grid, Stack } from "@mui/material";
+import { Box, Card, Container, Grid, Stack, Typography } from "@mui/material";
 import LoginForm from "./components/LoginForm/LoginForm";
 
 const LoginPage = () => {
@@ -41,7 +41,22 @@ const LoginPage = () => {
           >
             <Card sx={{ p: 3, m: 2, maxWidth: "70%" }}>
               <Stack direction="row" justifyContent="center" mb={3} py={2}>
-                <img src={saferLogo} alt="safer logo" width="45%" />
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                  <img
+                    src={saferLogo}
+                    width="30px"
+                    height="30px"
+                    alt="logo of safer"
+                  />
+
+                  <Typography
+                    variant="body1"
+                    sx={{ textDecoration: "none" }}
+                    color="text.primary"
+                  >
+                    MGL Travel
+                  </Typography>
+                </Box>
               </Stack>
               <LoginForm />
             </Card>

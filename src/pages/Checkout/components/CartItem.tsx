@@ -51,10 +51,10 @@ const CartItem: FC<CartItemProps> = ({ room }) => {
           mb={2}
         >
           <Typography gutterBottom variant="h5" component="h3" m={0}>
-            {roomType} Room
+            {roomType}
           </Typography>
           <Typography variant="body1" component="span" color="red">
-            {price}$/night
+            {price}
           </Typography>
         </Stack>
         <Stack direction="row" gap={1} mb={2}>
@@ -92,7 +92,7 @@ const CartItem: FC<CartItemProps> = ({ room }) => {
           endIcon={<X />}
           onClick={handleRemove}
         >
-          Remove
+          Утсгах
         </Button>
       </CardActions>
     </Card>

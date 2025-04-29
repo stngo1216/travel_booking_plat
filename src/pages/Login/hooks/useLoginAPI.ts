@@ -29,8 +29,8 @@ const useLoginAPI = () => {
         "Authorization"
       ] = `Bearer ${authentication}`;
 
-      if (payload.userType == "Admin") navigate("/me/cities");
-      else navigate("/me");
+      if (payload.userType == "Admin") navigate("/cities");
+      else navigate("/");
     },
     onError: () => {
       showErrorSnackbar({ message: "Invalid Credentials" });

@@ -31,7 +31,7 @@ const Destination: FC<DestinationProps> = ({ destination }) => {
             {cityName}
           </Typography>
           <Flag
-            code={countries.getAlpha2Code(countryName, "en")}
+            code={countries.getAlpha2Code("mn", "en")}
             className={styles.flag}
           />
         </CardContent>

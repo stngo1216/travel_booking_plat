@@ -1,6 +1,7 @@
 import { selectThemeMode } from "@/features/AppSettings/selectors";
 import { useAppSelector } from "@/store";
-import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 import { FC, PropsWithChildren } from "react";
 import getSaferTheme from "./getSaferTheme";
 

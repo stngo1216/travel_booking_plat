@@ -17,55 +17,30 @@ const LandingPage = () => {
           sx={{ width: { xs: "100%", sm: "80%" }, mx: "auto" }}
         >
           <Typography variant="h1" className={styles.headerTitle}>
-            Explore Our Latest&nbsp;
+            Аялал нь&nbsp;
             <Typography component="span" variant="h1" color="primary">
-              Booking&nbsp;
+              дурсамж&nbsp;
             </Typography>
-            Services
+            бүтээх үүд хаалгыг нээж өгдөг
           </Typography>
           <Typography
             textAlign="center"
             color="text.secondary"
             sx={{ alignSelf: "center", width: { sm: "100%", md: "80%" } }}
           >
-            Discover and book tailored services with&nbsp;
-            <Typography component="span" color="primary" fontWeight={600}>
-              Safer
-            </Typography>
-            . From vacation rentals to event venues, enjoy a seamless booking
-            experience. Plan your next adventure with confidence, supported by
-            top-tier customer service and unbeatable deals. Make your next trip
-            unforgettable with&nbsp;
-            <Typography component="span" color="primary" fontWeight={600}>
-              Safer
-            </Typography>
+            Тал нутагт шингэх нарны туяа, цэнхэр тэнгэрийг тольдсон тунгалаг
+            нуур, мөнх цаст уулсын сүр хүч — энэ бүхэн бол Монголын байгаль. Энэ
+            бол таны сэтгэл амар тайван амьдрах, өөрийгөө дахин нээх, жинхэнэ
+            аялал жуулчлалын утгыг мэдрэх газар юм.
           </Typography>
         </Stack>
-        <SearchForm />
-        <Typography
-          variant="caption"
-          component="p"
-          textAlign="center"
-          sx={{ opacity: 0.8 }}
-          mt={2}
-        >
-          By clicking &quot;Search&quot; you agree to our&nbsp;
-          <Link href="#" color="primary">
-            Terms & Conditions
-          </Link>
-          .
-        </Typography>
+        {/* <SearchForm /> */}
       </Container>
       <FeaturedDeals />
       <TrendingDestinations />
-      <RecentlyVisitedHotels />
+      {/* <RecentlyVisitedHotels /> */}
     </StyledContainer>
   );
 };
 
-const withRouteHoC = routeHOC({
-  title: "Home",
-  pageAccessName: "Home",
-});
-
-export default withRouteHoC(LandingPage);
+export default LandingPage;

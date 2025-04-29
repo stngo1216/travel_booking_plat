@@ -52,10 +52,10 @@ const Room: FC<RoomProps> = ({
           mb={2}
         >
           <Typography gutterBottom variant="h5" component="h3" m={0}>
-            {roomType} Room
+            {roomType}
           </Typography>
           <Typography variant="body1" component="span" color="red">
-            {price}$/night
+            {price}
           </Typography>
         </Stack>
         <Stack direction="row" gap={1} mb={2}>
@@ -69,7 +69,7 @@ const Room: FC<RoomProps> = ({
               {capacityOfAdults}
             </Typography>
           </Stack>
-          <Stack direction="row" gap={1}>
+          {/* <Stack direction="row" gap={1}>
             <Baby />
             <Typography
               variant="subtitle2"
@@ -78,7 +78,7 @@ const Room: FC<RoomProps> = ({
             >
               {capacityOfChildren}
             </Typography>
-          </Stack>
+          </Stack> */}
         </Stack>
         <Stack gap={2}>{renderAmenities}</Stack>
       </CardContent>
@@ -91,7 +91,7 @@ const Room: FC<RoomProps> = ({
           onClick={handleDelete}
           endIcon={<Trash size={20} />}
         >
-          Delete
+          Устгах
         </Button>
       </CardActions>
     </Card>
