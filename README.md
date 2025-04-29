@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center">
     <img src="https://user-images.githubusercontent.com/62269745/174906065-7bb63e14-879a-4740-849c-0821697aeec2.png#gh-light-mode-only" width="40%">
     <img src="https://user-images.githubusercontent.com/62269745/174906068-aad23112-20fe-4ec8-877f-3ee1d9ec0a69.png#gh-dark-mode-only" width="40%">
@@ -130,7 +131,7 @@ To get this project up and running on your machine, follow these simple steps:
 1. **Clone the repository:**
 
 ```bash
- git clone https://github.com/SalahQerem/Travel-and-Accommodation-Booking-Platform.git
+ git hahah
 ```
 
 2. **Install npm packages:**
@@ -171,3 +172,7 @@ If you have any questions or want to reach out, feel free to connect with me:
 ## 💖 Acknowledgement
 
 I extend my heartfelt thanks to **[Foothill Technology Solutions](https://www.linkedin.com/company/foothill-technology-solutions-llc./mycompany/)** for offering me the opportunity to participate in this internship cycle. Their consistent support has been crucial in the development of this project.
+=======
+# travel_booking_plat
+travel book plat
+>>>>>>> 5048d3658356a1c6df6c5b9d0fd1018bf61d95df
